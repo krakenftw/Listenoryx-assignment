@@ -27,7 +27,7 @@ export default function Home() {
       </div>
       <div className="z-10 w-full md:w-1/2 text-center md:text-center flex pl-0 md:pl-20 flex-col gap-6 justify-center items-center md:items-center">
         <h1 className="text-4xl md:text-5xl font-bold">Anywhere you are</h1>
-        <h2 className="text-foreground/60 text-xl md:text-2xl w-full md:w-2/3">
+        <h2 className="text-foreground/60 text-xl md:text-2xl w-full ">
           Sell houses easily with the help of Listenoryx. Our platform
           simplifies the process, providing you with the tools and resources
           needed to reach potential buyers efficiently.

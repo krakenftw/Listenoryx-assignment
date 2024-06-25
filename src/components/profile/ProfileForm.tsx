@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import BackButton from "../ui/BackButton";
+import { CameraIcon, PersonIcon } from "@radix-ui/react-icons";
+import { useRef } from "react";
 
 const formSchema = z.object({
   profilePicture: z.instanceof(File),
@@ -30,6 +32,7 @@ const formSchema = z.object({
 });
 
 export default function ProfileForm() {
+  const inputRef = useRef(null);
   const form = useForm({
     resolver: zodResolver(formSchema),
   });
@@ -52,10 +55,23 @@ export default function ProfileForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input
-                  type="file"
-                  onChange={(e) => field.onChange(e.target.files)}
-                />
+                <div className="w-full flex items-center justify-center">
+                  <Input
+                    ref={inputRef}
+                    className="hidden"
+                    type="file"
+                    onChange={(e) => field.onChange(e.target.files)}
+                  />
+                  <div
+                    onClick={inputRef.current}
+                    className="border relative rounded-full  h-20 w-20 flex items-center justify-center"
+                  >
+                    <PersonIcon className="w-5 h-5" />
+                    <div className="absolute right-1 bottom-1">
+                      <CameraIcon className="text-foreground bg-background" />
+                    </div>
+                  </div>
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
